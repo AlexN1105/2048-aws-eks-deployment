@@ -1,1 +1,5 @@
+pass.txt
 .sass-cache/
+node_modules/
+.env
+*.log
