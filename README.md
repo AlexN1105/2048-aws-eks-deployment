@@ -1,38 +1,57 @@
-# 2048
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/).
+🎮 2048 Game Deployment on AWS EKS
 
-Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
+This project demonstrates the end-to-end deployment of the open-source 2048 game on AWS Elastic Kubernetes Service (EKS) using Docker, Amazon ECR, and Kubernetes.
 
-The official app can also be found on the [Play Store](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048) and [App Store!](https://itunes.apple.com/us/app/2048-by-gabriele-cirulli/id868076805)
+The focus of this project is DevOps and cloud infrastructure, including containerization, orchestration, deployment, and secure Git practices.
 
-### Contributions
 
-[Anna Harren](https://github.com/iirelu/) and [sigod](https://github.com/sigod) are maintainers for this repository.
+🚀 Tech Stack
 
-Other notable contributors:
+Docker – Containerization
 
- - [TimPetricola](https://github.com/TimPetricola) added best score storage
- - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
- - [marcingajda](https://github.com/marcingajda) made swipes work on Windows Phone
- - [mgarciaisaia](https://github.com/mgarciaisaia) added support for Android 2.3
+Amazon ECR – Container image registry
 
-Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.
+Amazon EKS – Managed Kubernetes cluster
 
-### Screenshot
+Kubernetes – Deployment & Service (LoadBalancer)
 
-<p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/1175750/8614312/280e5dc2-26f1-11e5-9f1f-5891c3ca8b26.png" alt="Screenshot"/>
-</p>
+AWS Elastic Load Balancer – Public access
 
-That screenshot is fake, by the way. I never reached 2048 :smile:
+Git & GitHub – Version control & documentation
 
-## Contributing
-Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.
 
-You can find the same information in the [contributing guide.](https://github.com/gabrielecirulli/2048/blob/master/CONTRIBUTING.md)
+🏗️ Architecture
 
-## License
-2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
+User (Browser)
+   ↓
+AWS Elastic Load Balancer
+   ↓
+Kubernetes Service (LoadBalancer)
+   ↓
+Kubernetes Pods (Deployment – 2 replicas)
+   ↓
+NGINX Container
+   ↓
+2048 Game Application
 
-## Donations
-I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
+
+⚙️ Deployment Workflow
+
+Dockerized the 2048 web application
+
+Pushed Docker image to Amazon ECR
+
+Created an EKS cluster using eksctl
+
+Deployed the application using Kubernetes Deployment
+
+Exposed the application using a LoadBalancer Service
+
+Performed rolling updates after application changes
+
+
+🎮 Application Output
+
+The application was successfully deployed and accessed via an AWS LoadBalancer URL.
+
+Deployed on AWS EKS by Alex Selvin
